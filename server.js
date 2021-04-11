@@ -5,6 +5,7 @@ const app = express();
 const server = http.createServer(app);
 const socket = require("socket.io");
 const io = socket(server);
+const path = requite("path");
 
 const rooms = {};
 
@@ -15,10 +16,7 @@ io.on("connection", socket => {
         } else {
             rooms[roomID] = [socket.id];
         }
-        const otherUser = rooms[roomID].find(id => id !== socket.id);
-        if (otherUser) {
-            socket.emit("other user", otherUser);
-            socket.to(otherUser).emit("user joined", socket.id);
+        const otherUser = rooms[roomIDhttps://morning-temple-35494.herokuapp.com/user joined", socket.id);
         }
     });
 
